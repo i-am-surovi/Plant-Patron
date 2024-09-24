@@ -1,0 +1,168 @@
+/* plantStyle.css */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(209, 202, 202, 0.642); /* Specified navbar background color */
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.navbar img {
+    height: 65px; /* Logo height */
+}
+
+.navbar .nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.navbar a.add-plant {
+    background-color: blue;
+}
+
+.navbar a.logout {
+    background-color: red;
+}
+
+.navbar a:hover {
+    opacity: 0.8;
+}
+
+/* Container Styling */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Welcome Message */
+.container h1 {
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* Success and Error Messages */
+.success-message {
+    color: green;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+/* Plant Table Styling */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: rgb(153, 237, 111); /* Specified th background color */
+}
+
+td a {
+    color: #333;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Delete Button Styling */
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-button:hover {
+    opacity: 0.8;
+}
+
+/* No Plants Message */
+.no-plants {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: gray;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar img {
+        margin-bottom: 10px;
+    }
+    .navbar .nav-buttons {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    table, th, td {
+        font-size: 14px;
+    }
+    .delete-button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    .container h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    th, td {
+        padding: 8px 10px;
+    }
+    .navbar a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
