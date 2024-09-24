@@ -77,7 +77,7 @@ $stmt->close();
                     <?php foreach ($plants as $plant): ?>
                         <tr>
                             <td>
-                                <a href="check.php?plant_id=<?php echo urlencode($plant['PLANT_ID']); ?>">
+                                <a href="plant_photos.php?plant_id=<?php echo urlencode($plant['PLANT_ID']); ?>">
                                     <?php echo htmlspecialchars($plant['NAME']); ?>
                                 </a>
                             </td>

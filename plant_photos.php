@@ -29,7 +29,7 @@ if (isset($_GET['plant_id'])) {
         $plant_name = $plant['NAME'];
 
         // Fetch photos related to the plant
-        $photos_stmt = $conn->prepare("SELECT PLANT_PHOTO_URL, NOTES, DATE_OF_PHOTO_TAKEN FROM PLANT_PHOTOS WHERE PLANT_ID = ?");
+        $photos_stmt = $conn->prepare("SELECT PHOTO_ID, PLANT_PHOTO_URL, NOTES, DATE_OF_PHOTO_TAKEN FROM PLANT_PHOTOS WHERE PLANT_ID = ?");
         if (!$photos_stmt) {
             die("Prepare failed: " . $conn->error);
         }
@@ -175,6 +175,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['plant_photo'])) {
                         <?php if (!empty($photo['DATE_OF_PHOTO_TAKEN'])): ?>
                             <p class="photo-date">Photo taken on: <?php echo htmlspecialchars($photo['DATE_OF_PHOTO_TAKEN']); ?></p>
                         <?php endif; ?>
+
+                        <!-- Delete Photo Button -->
+                        <form action="delete_plantPhoto.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this photo?');" class="delete-photo-form">
+                            <input type="hidden" name="plant_id" value="<?php echo htmlspecialchars($plant_id); ?>">
+                            <input type="hidden" name="photo_id" value="<?php echo htmlspecialchars($photo['PHOTO_ID']); ?>">
+                            <button type="submit" class="delete-photo-button">Delete</button>
+                        </form>
                     </div>
                 <?php endforeach; ?>
             </div>
